@@ -1,0 +1,49 @@
+[root@localhost upi]# cat install-config_bkup.yaml
+apiVersion: v1
+baseDomain: janus.com
+proxy:
+  httpProxy: http://10.255.0.19:3128
+  httpsProxy: http://10.255.0.19:3128
+  noProxy: localhost,127.0.0.1,10.128.0.0/14,10.0.0.0/16,10.255.16.0/20,172.30.0.0/16,10.255.16.41,10.255.16.42,10.255.16.43,10.255.16.44,10.255.16.45,10.255.16.46,10.255.16.47,10.255.16.48,10.255.16.49
+compute:
+- hyperthreading: Enabled
+  name: worker
+  replicas: 0
+controlPlane:
+  hyperthreading: Enabled
+  name: master
+  replicas: 3
+metadata:
+  name: enentodemocluster
+platform:
+  vsphere:
+    vcenter: fieslpvcs01.fi.tcsecp.com
+    username: fi\563805
+    password: Password@12345
+    datacenter: FIES-JANUS
+    defaultDatastore: FIES-AZ1-PM50-2-254-T2
+    folder: "/FIES-JANUS/vm/ocp/demo"
+    network: "_FI01_Janus|FI01_app|epg_APP"
+    cluster: JANUS-AZ1
+    apiVIP: 10.255.16.48
+    ingressVIP: 10.255.16.49
+fips: false
+pullSecret: '{"auths":{"cloud.openshift.com":{"auth":"b3BlbnNoaWZ0LXJlbGVhc2UtZGV2K29jbV9hY2Nlc3NfNmY5YjFjNjk4OGNmNGM1YmI5YTdmMTIyYWY1Mzc4YWI6NUNDSEpDTUpRM09OS1hDV1ZMVE9EOTE3STBSMlFNVzdTRlEwNUhEM1pETkJIWVA5U09CWDhLQ0pCVk83TUVOVA==","email":"docker.team@tcs.com"},"quay.io":{"auth":"b3BlbnNoaWZ0LXJlbGVhc2UtZGV2K29jbV9hY2Nlc3NfNmY5YjFjNjk4OGNmNGM1YmI5YTdmMTIyYWY1Mzc4YWI6NUNDSEpDTUpRM09OS1hDV1ZMVE9EOTE3STBSMlFNVzdTRlEwNUhEM1pETkJIWVA5U09CWDhLQ0pCVk83TUVOVA==","email":"docker.team@tcs.com"},"registry.connect.redhat.com":{"auth":"fHVoYy0xZzlCMU8wQjdYRlE1bkVHbFRtMFpCQVgzZXU6ZXlKaGJHY2lPaUpTVXpVeE1pSjkuZXlKemRXSWlPaUk1T1dFNFpURmpNMk5oTW1NME16RTJZV1ZtWmpKaU5qTmpZMk0wWldNMVpTSjkucjdxZkFPVmNTYmxBUTBwSkw4dGlLbWpSZWZMSGRjdDE0bXp5NERZbElwMGtNTUlZVmFtTV9ZazhkdXh6OFZDSlFwNXJ6akxCRjhpUDA3ZjVYS3pWdWV3cG04dTlRb0pWTng3MnFxR3hQUlJTQ2hMT0wwRTZCM1pGbHlFUEVHQnd4ZktZRXBrSzE0MzJrMkNYLXVIQm14S0ExU1VNRklibHU0YTM2LWM4NldpcEllOGdSWjVwZFlxaWJkR0ZnQXNYcEtKd3dvRExnWmVRVkhQVFdhMXNpY0JjcTJSWndCbm8yRlhSRzVhNWFrcW9kMTIwTkM5OXZ2Q05kNHoyMWpPd0lBaXJRRVBYdWVZVnRZSDliQzJiV2RVV0pKUG5lNjhNeFV1akpuZVdQUlN5dDR3R0xaMnVSUFh5cGhOd2R4X1Fkajdxc3U2cDdGS2Ffd2pjVnRJRVJmZTVwLWxna0dVZGM5Z0dhOHNsS1VkOWhZOHdlOGFySmVQNW9yZHlnY3QxcVVVbjNOdjN6aDV0N0pVNFJYU0QwWXB5OWRORk5tRTdyNmRlei14U2twOGRBTnplRkxGYThKSEF5SWpGcE83bnY3eTlObk1qX3BmU0c1Yk1ycGNKOXl2WThoM0RTcDZGclVZODVFa1FGUFpQSWRGclI2VThiNnJsemxmNGlRTzdnd1JXUmVXSjE0b0huS2J2YWxRYkVzRDBwajhVM25FU0xwTXRrTUlkYTB4dW9BOGlEazFkcXJLdmg0bG1fZnlGa0RLbDBvQjFQTTZaamRNa2Q5ajdxa0Nkd0RLM3gyVUY5dkduR1dYZkxhQk1MeDNJdklJQWp3cWgzM0hkZnJmOElnV1pXbVBQa3gxRmJZblpzZXVMOG5UMWdhQkM3YzRHdHBkTk1qWXJLd1U=","email":"docker.team@tcs.com"},"registry.redhat.io":{"auth":"fHVoYy0xZzlCMU8wQjdYRlE1bkVHbFRtMFpCQVgzZXU6ZXlKaGJHY2lPaUpTVXpVeE1pSjkuZXlKemRXSWlPaUk1T1dFNFpURmpNMk5oTW1NME16RTJZV1ZtWmpKaU5qTmpZMk0wWldNMVpTSjkucjdxZkFPVmNTYmxBUTBwSkw4dGlLbWpSZWZMSGRjdDE0bXp5NERZbElwMGtNTUlZVmFtTV9ZazhkdXh6OFZDSlFwNXJ6akxCRjhpUDA3ZjVYS3pWdWV3cG04dTlRb0pWTng3MnFxR3hQUlJTQ2hMT0wwRTZCM1pGbHlFUEVHQnd4ZktZRXBrSzE0MzJrMkNYLXVIQm14S0ExU1VNRklibHU0YTM2LWM4NldpcEllOGdSWjVwZFlxaWJkR0ZnQXNYcEtKd3dvRExnWmVRVkhQVFdhMXNpY0JjcTJSWndCbm8yRlhSRzVhNWFrcW9kMTIwTkM5OXZ2Q05kNHoyMWpPd0lBaXJRRVBYdWVZVnRZSDliQzJiV2RVV0pKUG5lNjhNeFV1akpuZVdQUlN5dDR3R0xaMnVSUFh5cGhOd2R4X1Fkajdxc3U2cDdGS2Ffd2pjVnRJRVJmZTVwLWxna0dVZGM5Z0dhOHNsS1VkOWhZOHdlOGFySmVQNW9yZHlnY3QxcVVVbjNOdjN6aDV0N0pVNFJYU0QwWXB5OWRORk5tRTdyNmRlei14U2twOGRBTnplRkxGYThKSEF5SWpGcE83bnY3eTlObk1qX3BmU0c1Yk1ycGNKOXl2WThoM0RTcDZGclVZODVFa1FGUFpQSWRGclI2VThiNnJsemxmNGlRTzdnd1JXUmVXSjE0b0huS2J2YWxRYkVzRDBwajhVM25FU0xwTXRrTUlkYTB4dW9BOGlEazFkcXJLdmg0bG1fZnlGa0RLbDBvQjFQTTZaamRNa2Q5ajdxa0Nkd0RLM3gyVUY5dkduR1dYZkxhQk1MeDNJdklJQWp3cWgzM0hkZnJmOElnV1pXbVBQa3gxRmJZblpzZXVMOG5UMWdhQkM3YzRHdHBkTk1qWXJLd1U=","email":"docker.team@tcs.com"}}}'
+sshKey: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEMI9y9gZTJB3SUSuNg8Fcp5CXvNP+o6Lu5Vall5AhRT root@localhost.localdomain'
+[root@localhost upi]#
+
+
+[root@localhost upi]# cat pvc.yaml
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: image-registry-storage
+  namespace: openshift-image-registry
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Gi
+[root@localhost upi]#
+
