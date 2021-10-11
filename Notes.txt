@@ -1,0 +1,61 @@
+janusmssql01 - 10.255.16.52:9833
+ .\563805 password: TCSlogon@12345
+
+abhilash/Password@12345
+
+janusforge01      10.255.16.61  - janusforge01.fi.tcsecp.com  - 16
+janusxldeploy01 - 10.255.16.62  - janusjenkins01.fi.tcsecp.com - 16
+                  10.255.16.63  - janusxldeploy01.fi.tcsecp.com  - 16 
+
+
+10.255.16.52 - Selenium Grid, Agility, MS SQL
+10.255.16.61 - GitLab(D), Tomcat-Dev(D), Tomcat-QA(D), Tomcat-Prod(D)
+10.255.16.62 - Jenkins(D), SonarQube(D), Nexus (D)
+10.255.16.63 - XL Release(D), XL Deploy(D)
+
+
+GitLab
+https://10.255.16.61/
+root/Password@12345
+
+
+SonarQube Server
+http://10.255.16.62:9000
+admin/admin123
+Token : 79bf453fbf7119fe711479fa2ac4542997ff744c
+systemctl status sonarqube
+
+Jenkins Server
+http://10.255.16.62:8080/
+admin/admin123
+systemctl status jenkins
+
+Nexus Server
+http://10.255.16.62:8081
+admin/admin123
+systemctl status nexus
+
+Tomcat Dev Server : http://10.255.16.61:9000/
+Tomcat QA Server : http://10.255.16.61:9002/
+Tomcat Prod Server : http://10.255.16.61:9004/
+(tomcat/tomcat)
+systemctl status tomcatdev
+systemctl status tomcatqa
+systemctl status tomcatprod
+
+
+
+Xl Release
+http://10.255.16.63:5516
+* running as xlrelease user
+>>cd /opt/xl-release/bin
+>> nohup ./run.sh > nohup.log &
+
+XL Deploy
+http://10.255.16.63:4516
+* running as xldeploy user
+>>cd /opt/xl-deploy/bin
+>> nohup ./run.sh > nohup.log &
+
+
+
