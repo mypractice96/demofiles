@@ -1,0 +1,14 @@
+janusmssql01 - 10.255.16.52:9833
+ .\563805 password: TCSlogon@12345
+
+abhilash/Password@12345
+
+janusforge01      10.255.16.61  - janusforge01.fi.tcsecp.com  - 16
+janusxldeploy01 - 10.255.16.62  - janusjenkins01.fi.tcsecp.com - 16
+                  10.255.16.63  - janusxldeploy01.fi.tcsecp.com  - 16 (No sudo)  
+
+
+10.255.16.52 - Selenium Grid, Agility, MS SQL
+10.255.16.61 - GitLab, Tomcat-Dev, Tomcat-QA, Tomcat-Prod
+10.255.16.62 - Jenkins, SonarQube, Nexus
+10.255.16.63 - XL Release, XL Deploy
