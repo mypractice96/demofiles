@@ -1,0 +1,106 @@
+export http_proxy=http://10.47.21.5:3128
+--------------------------------------------------------------
+New RHEL ID
+Hostname:rhel-enento IP: 10.255.16.40 
+userid is pocadmin and password is Password@12345
+generate RSA key in new RHEL node -
+
+
+ssh-keygen -t ed25519 -N '' -f ~/.ssh/id_rsa
+
+eval "$(ssh-agent -s)"
+
+ssh-add ~/.ssh/id_rsa
+-----------------------------------------------------------
+centos-enento - 10.255.16.80/20
+
+-----------------------------------------------------------
+
+10.47.18.180/25
+
+
+
+
+
+Datastore: FIES-AZ1-PM50-2-254-T2
+---master1---
+disk.EnableUUID  TRUE
+guestinfo.ignition.config.data.encoding base64
+guestinfo.ignition.config.data <base64>
+guestinfo.afterburn.initrd.network-kargs   ip=10.255.16.42::10.255.16.1:255.255.240.0:master1.enentodemocluster.janus.com:ens192:none nameserver=10.255.17.102
+
+
+ip=10.100.0.7::10.100.0.1:255.255.0.0:bootisotest.lab.okd.com:ens192:none nameserver=172.31.254.7
+
+
+10.255.16.42
+
+ip=10.255.16.41::10.255.16.1:255.255.240.0:::none nameserver=10.255.17.102
+
+Network : _FI01_Janus|FI01_app|epg_APP
+api.enentodemocluster.janus.com : 10.255.16.48
+*.apps.enentodemocluster.janus.com : 10.255.16.49
+Basedomain details : janus.com
+Vcenter url: https://fieslpvcs01.fi.tcsecp.com/
+Vcenter user previliges: fi\563805
+DNS and Proxy details : 10.255.17.102 / 10.255.0.19
+
+ folder: "/fieslpvcs01.fi.tcsecp.com/vm/ocp"
+
+    
+
+    vCenter: fieslpvcs01.fi.tcsecp.com
+    username: "fi\563805"
+    password: "Password@12345"
+    datacenter: FIES-JANUS
+    defaultDatastore: FIES-AZ1-PM50-2-254-T2
+    folder: "/FIES-JANUS/vm/ocp/demo"
+    network: "_FI01_Janus|FI01_app|epg_APP"
+    cluster: JANUS-AZ1
+    apiVIP: 10.255.16.48
+    ingressVIP: 10.255.16.49
+
+
+platform: vsphere: vcenter: your.vcenter.server username: username password: password datacenter: datacenter defaultDatastore: datastore folder: folder network: VM_Network cluster: vsphere_cluster_name apiVIP: api_vip ingressVIP: ingress_vip
+
+
+
+http://10.47.18.180/rhcos-vmware.x86_64.ova 
+
+
+(DATACENTER_NAME/FOLDER_NAME/CLUSTER_NAME),
+folder: "fieslpvcs01.fi.tcsecp.com/ocp/enentodemocluster"
+
+
+./openshift-install create install-config --dir=demo
+openshift-install create cluster --dir=ipi
+
+
+proxy:
+  httpProxy: http://10.255.0.19:3128
+  httpsProxy: http://10.255.0.19:3128
+  noProxy: 10.128.0.0/14,10.0.0.0/16,10.255.16.0/20,172.30.0.0./16,localhost,127.0.0.1,10.255.16.48,10.255.16.49
+
+
+
+  platform:
+    vsphere: 
+      cpus: 4
+      coresPerSocket: 2
+      memoryMB: 16384
+      osDisk:
+        diskSizeGB: 120
+
+
+
+ Redhat IP:10.47.18.180
+
+base64 -w0 /root/upi/master.ign > /root/upi/master.64
+base64 -w0 /root/upi/worker.ign > /root/upi/worker.64
+base64 -w0 /root/upi/bootstrap.ign > /root/upi/bootstrap.64
+base64 -w0 append-bootstrap.ign > append-bootstrap.64
+
+id_rsa.pub
+
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBxM+t8rS4xAfWQ9+4i4C7wuA0khEOfX5aAC3OVJhz7k root@fieslppocap01.fi.tcsecp.com
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBt2QRlxVJmU79ey4Q6LcN23j5x/KhDDg3175JPDcuw9 root@localhost.localdomain
