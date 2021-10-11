@@ -1,0 +1,9 @@
+S-01001 Create compilable application skeleton 
+S-01002 Create Order Screen for Order Placement
+S-01003 Create Restaurant Screen
+S-01004 Integrate with Gateway
+
+
+S-01005 Integrate Gateway service with Order Service
+S-01006 Integrate Gateway Service with Delivery Service
+S-01007 Develop Gateway service for UI Integration
