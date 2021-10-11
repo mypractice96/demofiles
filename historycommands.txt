@@ -1,0 +1,995 @@
+[root@localhost ~]# history
+    1  }
+    2  cat << EOF > config.json
+    3  {
+    4      "auths": {
+    5          "https://index.docker.io/v1/": {
+    6              "auth": "${AUTH}"
+    7          }
+    8      }
+    9  cat << EOF > config.json
+   10  {
+   11      "auths": {
+   12          "https://index.docker.io/v1/": {
+   13              "auth": "${AUTH}"
+   14          }
+   15      }
+   16  }
+   17  /
+   18  echo $AUTH
+   19  DOCKER_USERNAME=kubeadmin
+   20  DOCKER_PASSWORD=sha256~Im_elHWJF8BjxqVgrlZDuqr029kEjgeQZya1Wgc5C1w
+   21  AUTH=$(echo -n "${DOCKER_USERNAME}:${DOCKER_PASSWORD}" | base64)
+   22  echo $AUTH
+   23  ls
+   24  cat nfs-subdir-external-provisioner
+   25  ls
+   26  cat /etc/environment
+   27  oc get scc
+   28  ls
+   29  kubectl get ns
+   30  kubectl get pods -n openshift-operators -l app.kubernetes.io/name=argocd-server -o name | cut -d'/' -f 2
+   31  oc -n openshift-operators get pod -l "app.kubernetes.io/name=argocd-server" -o jsonpath='{.items[*].metadata.name}'
+   32  oc get pods -n openshift-operators
+   33  ip addr
+   34  curl -kv google.com
+   35  oc get nodes
+   36  source /etc/environment
+   37  curl -kv google.com
+   38  oc get co
+   39  vi /etc/environment
+   40  source /etc/environment
+   41  oc get nodes
+   42  oc get co
+   43  history | grep nagesh
+   44  oc get projects
+   45  oc get pod -n openshift-operators
+   46  oc project openshift-operators
+   47  oc get pods -l=app.kubernetes.io/name=argocd-dex-server
+   48  echo $ARGOCD_SERVER_PASSWORD
+   49  ARGOCD_SERVER_PASSWORD=$(oc -n openshift-operators get pod -l "app.kubernetes.io/name=argocd-server" -o jsonpath='{.items[*].metadata.name}')
+   50  echo $ARGOCD_SERVER_PASSWORD
+   51  oc get pod
+   52  oc logs enento-argocd-server-67cc6fc498-t4ljj
+   53  oc logs enento-argocd-server-67cc6fc498-t4ljj | grep pass
+   54  oc describe pod enento-argocd-server-67cc6fc498-t4ljj
+   55  oc get route
+   56  oc get secret
+   57  oc get secret | grep secret
+   58  oc edit secret argocd-secret
+   59  oc get project
+   60  oc -n test get pod
+   61  oc get sa -n argocd
+   62  oc adm policy add-scc-to-user anyuid -z enento-argocd-argocd-server -n argocd
+   63  ssh core@10.255.16.45
+   64  oc get pods -n openshift-image-registry
+   65  oc get sa -n openshift-pipelines
+   66  oc adm policy add-scc-to-user anyuid -z pipeline
+   67  oc get sa -n openshift-pipelines
+   68  oc adm policy add-scc-to-user anyuid -z builder
+   69  oc adm policy add-scc-to-user anyuid -z default
+   70  oc adm policy add-scc-to-user anyuid -z deployer
+   71  oc adm policy add-scc-to-user anyuid -z tekton-operators-proxy-webhook
+   72  oc adm policy add-scc-to-user anyuid -z tekton-pipelines-controller
+   73  oc adm policy add-scc-to-user anyuid -z tekton-pipelines-webhook
+   74  oc adm policy add-scc-to-user anyuid -z tekton-triggers-controller
+   75  oc adm policy add-scc-to-user anyuid -z tekton-triggers-core-interceptors
+   76  oc adm policy add-scc-to-user anyuid -z tekton-triggers-webhook
+   77  oc adm policy add-cluster-role-to-user cluster-admin nagesh
+   78  oc get sa -n openshift-pipelines
+   79  oc adm policy add-scc-to-user privileged -z pipeline -n openshift-pipelines
+   80  oc adm policy add-role-to-user edit -z pipeline -n openshift-pipelines
+   81  ls
+   82  docker
+   83  yum install docker
+   84  sudo yum-config-manager     --add-repo     https://download.docker.com/linux/centos/docker-ce.repo
+   85  sudo yum install docker-ce docker-ce-cli containerd.io
+   86  subscription-manager repos --enable=rhel-7-server-extras-rpms
+   87  sudo yum install docker-ce docker-ce-cli containerd.io
+   88  systemctl status docker
+   89  systemctl start docker
+   90  systemctl status docker
+   91  oc get nodes
+   92  oc get co
+   93  oc -n argocd get pod
+   94  oc -n argocd get secret
+   95  oc project argocd
+   96  oc get pod
+   97  oc get route
+   98  argocd login --sso enento-argocd-server-argocd.apps.enentodemocluster.janus.com
+   99  yum instal argocd
+  100  yum install argocd
+  101  cd upi/
+  102  ls
+  103  cat auth/kubeadmin-password
+  104  oc get secret
+  105  oc describe secret enento-argocd-argocd-server-token-gtl2q
+  106  oc get secret
+  107  oc describe secret enento-argocd-argocd-server-token-4mgtn
+  108  VERSION=$(curl --silent "https://api.github.com/repos/argoproj/argo-cd/releases/latest" | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/')
+  109  curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/download/$VERSION/argocd-linux-amd64
+  110  source /etc/environment
+  111  VERSION=$(curl --silent "https://api.github.com/repos/argoproj/argo-cd/releases/latest" | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/')
+  112  curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/download/$VERSION/argocd-linux-amd64
+  113  argocd
+  114  chmod +x /usr/local/bin/argocd
+  115  argocd version --client
+  116  ARGOCD_ROUTE=$(oc -n argocd get route argocd-server -o jsonpath='{.spec.host}')
+  117  oc get rute
+  118  oc get route
+  119  ARGOCD_ROUTE=$(oc -n argocd get route enento-argocd-server -o jsonpath='{.spec.host}')
+  120  argocd --insecure --grpc-web --server ${ARGOCD_ROUTE}:443 account update-password --current-password ${ARGOCD_SERVER_PASSWORD} --new-password StrOngP@ssw0rd
+  121  argocd login --sso enento-argocd-server-argocd.apps.enentodemocluster.janus.com
+  122  argocd login --sso enento-argocd-server-argocd.apps.enentodemocluster.janus.com --grpc-web
+  123  argocd login  enento-argocd-server-argocd.apps.enentodemocluster.janus.com
+  124  argocd cluster list
+  125  argocd cluster add
+  126  argocd cluster add argocd/api-enentodemocluster-janus-com:6443/system:admin
+  127  argocdp cluater list
+  128  argocd cluster list
+  129  oc cluster-info
+  130  curl https://api.enentodemocluster.janus.com:6443
+  131  argocd app create builds-config --repo https://github.com/openshift/openshift-gitops-examples.git --path=argocd/builds/base --dest-server=https://api.enentodemocluster.janus.com:6443 --dest-namespace=test
+  132  argocd app sync builds-config
+  133  oc get pod
+  134  oc -n test get pod
+  135  oc -n test get all
+  136  oc get bc -n test
+  137  oc-n test get all
+  138  oc -n test get all
+  139  oc get route
+  140  oc get route -n test
+  141  oc get pod -n openshift-workspaces
+  142  oc get serviceaccount pipeline
+  143  tkn
+  144  wget https://mirror.openshift.com/pub/openshift-v4/clients/pipeline/0.9.0/tkn-linux-amd64-0.9.0.tar.gz
+  145  source /etc/environment
+  146  wget https://mirror.openshift.com/pub/openshift-v4/clients/pipeline/0.9.0/tkn-linux-amd64-0.9.0.tar.gz
+  147  ls
+  148  tar xzvf tkn-linux-amd64-0.9.0.tar.gz
+  149  echo $PATH
+  150  ls
+  151  cp tkn /usr/bin
+  152  tkn
+  153  tkn version
+  154  tkn completion bash
+  155  tkn pipeline list
+  156  tkn pipeline-A
+  157  tkn pipeline list -A
+  158  tkn pipeline list -test
+  159  tkn pipeline list -n test
+  160  tkn pipeline list -n openshift-pipelines
+  161  tkn pipeline ls
+  162  tkn pipeline ls -n openshift-pipelines
+  163  oc get pod -n openshift-operators
+  164  oc get pod -n argocd
+  165  ls
+  166  ping repo.maven.apache.org
+  167  ssh pocadmin@10.255.0.19
+  168  docker
+  169  docker login
+  170  docker login https://enentocr-openshift-image-registry.apps.enentodemocluster.janus.com
+  171  docker login --tls-verify=false https://enentocr-openshift-image-registry.apps.enentodemocluster.janus.com
+  172  docker login --help
+  173  docker help
+  174  vi /etc/docker/
+  175  cd /etc/docker/
+  176  ls
+  177  oc whoami
+  178  oc whoami -t
+  179  oc whoami --show-token
+  180  docker login https://enentocr-openshift-image-registry.apps.enentodemocluster.janus.com
+  181  ping image-registry.openshift-image-registry.svc:5000
+  182  ssh coreos@10.255.16.45
+  183  ssh coreos@10.255.16.48
+  184  ssh core@10.255.16.48
+  185  ssh core@10.255.16.42
+  186  ls
+  187  ssh core@10.255.16.42
+  188  ls
+  189  cd ~
+  190  ls
+  191  ssh core@10.255.16.42
+  192  hostname -i
+  193  ssh pocadmin@10.255.0.19
+  194  ls
+  195  ssh core@10.255.16.42
+  196  oc -n tools get svc
+  197  oc -n tools get pods
+  198  ssh core@10.255.16.42
+  199  ls
+  200  oc -n tools get svc
+  201  oc get svc -A
+  202  ls
+  203  ls upi/
+  204  ls
+  205  git
+  206  git pull https://github.com/mypractice96/tekton-petclinic-argocd.git
+  207  git clone https://github.com/mypractice96/tekton-petclinic-argocd.git
+  208  echo $http_proxy
+  209  cat /etc/environment
+  210  source /etc/environment
+  211  ls
+  212  mldir tst
+  213  mkdir test
+  214  cd test/
+  215  ls
+  216  git clone https://github.com/mypractice96/tekton-petclinic-argocd.git
+  217  ls
+  218  cd tekton-petclinic-argocd/
+  219  l
+  220  ls
+  221  cat petclinic-deploy.yml
+  222  ls
+  223  vi petclinic-deploy.yml
+  224  cat petclinic-deploy.yml
+  225  sed -i 'Ns/.*/            image-registry.openshift-image-registry.svc:5000/pipelines/petclinic:v3/' petclinic-deploy.yml
+  226  sed -i '19s/.*/            image-registry.openshift-image-registry.svc:5000/pipelines/petclinic:v3/' petclinic-deploy.yml
+  227  ls
+  228  vi petclinic-deploy.yml
+  229  git status
+  230  git add *
+  231  git push -u origin main
+  232  git push https://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@gitlab.com/mypractice96/tekton-petclinic-argocd.git
+  233  git push https://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@github.com/mypractice96/tekton-petclinic-argocd.git
+  234  git status
+  235  git add *
+  236  git status
+  237  git commit -m "updated new version"
+  238      git config --global user.name "Your Name"
+  239  git config  user.name "Tekton Bot"
+  240  git config  user.email bot@tekton.com
+  241  git push https://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@github.com/mypractice96/tekton-petclinic-argocd.git
+  242  ls
+  243  cat petclinic-deploy.yml
+  244  sed -n 19p petclinic-deploy.yml
+  245  sed -n 19p petclinic-deploy.yml | awk -F":" '{print $NF}'
+  246  ls
+  247  cd test/
+  248  ls
+  249  cd tekton-petclinic-argocd/
+  250  ls
+  251  cat petclinic-deploy.yml
+  252  old_ver=`sed -n 19p petclinic-deploy.yml | awk -F":" '{print $NF}'`
+  253  echo $old_ver
+  254  new_ver=v4
+  255  sed -i "19s/$old_ver/$new_ver" petclinic-deploy.yml
+  256  sed -i '19s/$old_ver/$new_ver' petclinic-deploy.yml
+  257  sed -i '19s/$old_ver/$new_ver/' petclinic-deploy.yml
+  258  cat petclinic-deploy.yml
+  259  sed -i "19s/$old_ver/$new_ver/" petclinic-deploy.yml
+  260  cat petclinic-deploy.yml
+  261  ls
+  262  cd test/
+  263  ls
+  264  cd tekton-petclinic-argocd/
+  265  ls
+  266  git pull
+  267  source /etc/environment
+  268  ls
+  269  git pull
+  270  ls
+  271  vi petclinic-deploy.yml
+  272  git diff
+  273  l
+  274  ls
+  275  git pull
+  276  git status
+  277  vi petclinic-deploy.yml
+  278  git add *
+  279  git commit -m "Stable"
+  280  git push
+  281  ls
+  282  echo $?
+  283  git add *
+  284  git commit -m "Updated to new verison"
+  285  echo $?
+  286  git push https://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@github.com/mypractice96/tekton-petclinic-argocd.git
+  287  echo $?
+  288  git push https://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@github.com/mypractice96/tekton-petclinic-argocd.git || true
+  289  echo $?
+  290  ls
+  291  echo $?
+  292  asda
+  293  echo $?
+  294  git push https://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@github.com/mypractice96/tekton-petclinic-argocd.git
+  295  echo $?
+  296  ls
+  297  cat petclinic-deploy.yml
+  298  sed -i "19s/v3/v3/" petclinic-deploy.yml
+  299  echo $?
+  300  git commit -m 'Updated image with new version'
+  301  echo $?
+  302  git commit -m 'Updated image with new version' || true
+  303  echo $?
+  304  ls
+  305  docker images
+  306  docker ps -a
+  307  sourc /etc/environment
+  308  source /etc/environment
+  309  ls
+  310  mkdir jmeter
+  311  cd jmeter/
+  312  ls
+  313  vi Dockerfile
+  314  wget  https://dlcdn.apache.org//jmeter/binaries/apache-jmeter-5.4.1.tgz
+  315  source /etc/environment
+  316  wget  https://dlcdn.apache.org//jmeter/binaries/apache-jmeter-5.4.1.tgz
+  317  ssh pocadmin@10.255.0.19
+  318  ls
+  319  cat Dockerfile
+  320  wget https://dlcdn.apache.org//jmeter/binaries/apache-jmeter-5.4.1.tgz
+  321  ls
+  322  tar -xvf apache-jmeter-5.4.1.tgz
+  323  ls
+  324  mv apache-jmeter-5.4.1 /opt/jmeter
+  325  ls /opt/jmeter/
+  326  cd /opt/jmeter/bin/
+  327  ls
+  328  history
+  329  cd ~
+  330  cd jmeter/
+  331  vi Dockerfile
+  332  wget  https://dlcdn.apache.org/jmeter/binaries/apache-jmeter-5.4.1.tgz
+  333  ls
+  334  cat Dockerfile
+  335  ls
+  336  docker build -t jemter:v1
+  337  docker build -t jmeter:latest .
+  338  ssh pocadmin@10.255.0.19
+  339  docker build -t jmeter:latest .
+  340  echo $http_proxy
+  341  docker build -t jmeter:latest .
+  342  vi /etc/resolv.conf
+  343  docker build -t jmeter:latest .
+  344  vi /etc/resolv.conf
+  345  docker build -t jmeter:latest .
+  346  systemctl restart docker
+  347  systemctl status docker
+  348  docekr build -t jmeter:latest .
+  349  docker build -t jmeter:latest .
+  350  systemctldaemon-reload
+  351  systemctl daemon-reload
+  352  docker build -t jmeter:latest .
+  353  cat Dockerfile
+  354  docker pull hello-world
+  355  cd /opt/jmeter/
+  356  ls
+  357  cd bin/
+  358  ls
+  359  <?xml version="1.0" encoding="UTF-8"?>
+  360  <jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4.1">
+  361    <hashTree>
+  362      <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+  363        <stringProp name="TestPlan.comments"></stringProp>
+  364        <boolProp name="TestPlan.functional_mode">false</boolProp>
+  365        <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+  366        <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+  367        <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+  368          <collectionProp name="Arguments.arguments"/>
+  369        </elementProp>
+  370        <stringProp name="TestPlan.user_define_classpath"></stringProp>
+  371      </TestPlan>
+  372      <hashTree>
+  373        <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+  374          <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+  375          <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+  376            <boolProp name="LoopController.continue_forever">false</boolProp>
+  377            <stringProp name="LoopController.loops">3</stringProp>
+  378          </elementProp>
+  379          <stringProp name="ThreadGroup.num_threads">100</stringProp>
+  380          <stringProp name="ThreadGroup.ramp_time">10</stringProp>
+  381          <boolProp name="ThreadGroup.scheduler">false</boolProp>
+  382          <stringProp name="ThreadGroup.duration"></stringProp>
+  383          <stringProp name="ThreadGroup.delay"></stringProp>
+  384          <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+  385        </ThreadGroup>
+  386        <hashTree>
+  387          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="true">
+  388            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+  389              <collectionProp name="Arguments.arguments"/>
+  390            </elementProp>
+  391            <stringProp name="HTTPSampler.domain">192.168.10.39</stringProp>
+  392            <stringProp name="HTTPSampler.port">7002</stringProp>
+  393            <stringProp name="HTTPSampler.protocol"></stringProp>
+  394            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+  395            <stringProp name="HTTPSampler.path">/</stringProp>
+  396            <stringProp name="HTTPSampler.method">GET</stringProp>
+  397            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+  398            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+  399            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+  400            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+  401            <boolProp name="HTTPSampler.image_parser">true</boolProp>
+  402            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+  403            <stringProp name="HTTPSampler.implementation">Java</stringProp>
+  404            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+  405            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+  406          </HTTPSamplerProxy>
+  407          <hashTree>
+  408            <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+  409              <boolProp name="ResultCollector.error_logging">false</boolProp>
+  410              <objProp>
+  411                <name>saveConfig</name>
+  412                <value class="SampleSaveConfiguration">
+  413                  <time>true</time>
+  414                  <latency>true</latency>
+  415                  <timestamp>true</timestamp>
+  416                  <success>true</success>
+  417                  <label>true</label>
+  418                  <code>true</code>
+  419                  <message>true</message>
+  420                  <threadName>true</threadName>
+  421                  <dataType>true</dataType>
+  422                  <encoding>false</encoding>
+  423                  <assertions>true</assertions>
+  424                  <subresults>true</subresults>
+  425                  <responseData>false</responseData>
+  426                  <samplerData>false</samplerData>
+  427                  <xml>false</xml>
+  428                  <fieldNames>true</fieldNames>
+  429                  <responseHeaders>false</responseHeaders>
+  430                  <requestHeaders>false</requestHeaders>
+  431                  <responseDataOnError>false</responseDataOnError>
+  432                  <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+  433                  <assertionsResultsToSave>0</assertionsResultsToSave>
+  434                  <bytes>true</bytes>
+  435                  <sentBytes>true</sentBytes>
+  436                  <url>true</url>
+  437                  <threadCounts>true</threadCounts>
+  438                  <idleTime>true</idleTime>
+  439                  <connectTime>true</connectTime>
+  440                </value>
+  441              </objProp>
+  442              <stringProp name="filename"></stringProp>
+  443            </ResultCollector>
+  444            <hashTree/>
+  445          </hashTree>
+  446        </hashTree>
+  447      </hashTree>
+  448    </hashTree>
+  449  cd ~
+  450  cd jmeter/
+  451  vi petclinic-loadtest.jmx
+  452  ls
+  453  /opt/jmeter/bin/jmeter.sh -Jjmeter.save.saveservice.output_format=xml -n -t petclinic-loadtest.jmx -l jmeter.jtl
+  454  yum search openjsk
+  455  yum search openjdk | grep 8
+  456  yum install java-1.8.0-openjdk-devel.x86_64
+  457  ls /usr/lib/jvm/java
+  458  export JAVA_HOME=/usr/lib/jvm/java
+  459  /opt/jmeter/bin/jmeter.sh -Jjmeter.save.saveservice.output_format=xml -n -t petclinic-loadtest.jmx -l jmeter.jtl
+  460  ls
+  461  cat jmeter.jtl
+  462  oc get svc -n pipelines
+  463  history | grep ssh
+  464  oc get svc -n pipelines
+  465  ssh core@10.255.16.42
+  466  ls
+  467  cd jmeter/
+  468  ls
+  469  cd ~
+  470  history | grep argocd
+  471  oc get svc -n argocd
+  472  argocd cluster list
+  473  argocd --help
+  474  oc get svc -n argocd
+  475  ls
+  476  histroy | grp argo
+  477  history | grep argo
+  478  argocd login  enento-argocd-server-argocd.apps.enentodemocluster.janus.com
+  479  argocd logout
+  480  argocd login  --insecure enento-argocd-server-argocd.apps.enentodemocluster.janus.com
+  481  argocd login  --insecure enento-argocd-server-argocd.apps.enentodemocluster.janus.com --username=admin --password=xI60t5OQDknduwrjVZ1gWEJLvaXe3CSi
+  482  echo $?
+  483  curl -kv enento-argocd-server-argocd.apps.enentodemocluster.janus.com
+  484  curl -kv 10.255.16.49
+  485  oc get nodes
+  486  ping master1.enentodemocluster.janus.com
+  487  ping worker3.enentodemocluster.janus.com
+  488  ping worker2.enentodemocluster.janus.com
+  489  hostname -i
+  490  ping localhost
+  491  history
+  492  ping enento-argocd-server-argocd.apps.enentodemocluster.janus.com
+  493  oc get svc -n argoc
+  494  oc get svc -n argocd
+  495  history
+  496  argocd login  --insecure --plaintext enento-argocd-server-argocd.apps.enentodemocluster.janus.com --username=admin --password=xI60t5OQDknduwrjVZ1gWEJLvaXe3CSi
+  497  argocd login  --insecure enento-argocd-server-argocd.apps.enentodemocluster.janus.com --username=admin --password=xI60t5OQDknduwrjVZ1gWEJLvaXe3CSi
+  498  argocd login --help
+  499  argocd login --plaintext enento-argocd-server-argocd.apps.enentodemocluster.janus.com --username=admin --password=xI60t5OQDknduwrjVZ1gWEJLvaXe3CSi
+  500  argocd login --plaintext --insecure enento-argocd-server-argocd.apps.enentodemocluster.janus.com --username=admin --password=xI60t5OQDknduwrjVZ1gWEJLvaXe3CSi
+  501  argocd login --insecure enento-argocd-server-argocd.apps.enentodemocluster.janus.com --username=admin --password=xI60t5OQDknduwrjVZ1gWEJLvaXe3CSi
+  502  argocd login --insecure --grpc-web enento-argocd-server-argocd.apps.enentodemocluster.janus.com --username=admin --password=xI60t5OQDknduwrjVZ1gWEJLvaXe3CSi
+  503  argocd --version
+  504  argocd version
+  505  ls
+  506  argocd app sync java-spring-petclinic --revision HEAD --
+  507  oc get svc -n argocd
+  508  oc get svc -n orpenshift-monitoring
+  509  oc get svc -n openshift-monitoring
+  510  ls
+  511  oc adm policy add-cluster-role-to-user cluster-monitoring-view -z grafana-serviceaccount
+  512  oc get sa
+  513  oc get sa -n tools
+  514  oc adm policy add-cluster-role-to-user cluster-monitoring-view -z grafana-serviceaccount -n tools
+  515  oc serviceaccounts get-token grafana-serviceaccount -n tools
+  516  vi datasource.yml
+  517  oc get svc -n openshift-monitoring
+  518  vi datasource.yml
+  519  cat datasource.yml
+  520  ls
+  521  curl -kv http://petclinic-app-pipelines.apps.enentodemocluster.janus.com/
+  522  ls
+  523  wget https://github.com/zaproxy/zaproxy/releases/download/v2.10.0/ZAP_2.10.0_Linux.tar.gz
+  524  source /etc/environment
+  525  wget https://github.com/zaproxy/zaproxy/releases/download/v2.10.0/ZAP_2.10.0_Linux.tar.gz
+  526  ls
+  527  wget https://github.com/zaproxy/zaproxy/releases/download/v2.10.0/ZAP_2.10.0_Linux.tar.gz
+  528  df -h
+  529  ls
+  530  cd /opt
+  531  ls
+  532  wget https://github.com/zaproxy/zaproxy/releases/download/v2.10.0/ZAP_2.10.0_Linux.tar.gz
+  533  ls
+  534  tar -xvf ZAP_2.10.0_Linux.tar.gz
+  535  ls
+  536  mv ZAP_2.10.0 zap
+  537  ls
+  538  cd zap/
+  539  ls
+  540  cd ~
+  541  ls
+  542  /opt/zap/zap.sh -cmd -quickurl http://petclinic-app-pipelines.apps.enentodemocluster.janus.com  -quickprogress -quickout /opt/zap-report.xhtml
+  543  cd ~
+  544  ls
+  545  rm -rf jmeter/
+  546  rm -rf tkn-linux-amd64-0.9.0.tar.gz
+  547  rm -rf ZAP_2.10.0_Linux.tar.gz
+  548  /opt/zap/zap.sh -cmd -quickurl http://petclinic-app-pipelines.apps.enentodemocluster.janus.com  -quickprogress -quickout /root/zap-report.xhtml
+  549  echo $http_proxy
+  550  vi /root/.ZAP/config.xml
+  551  cp /root/.ZAP/config.xml /opt
+  552  df -h
+  553  ls
+  554  /opt/zap/zap.sh -cmd -quickurl http://petclinic-app-pipelines.apps.enentodemocluster.janus.com  -quickprogress -quickout /root/zap-report.xhtml
+  555  curl http://petclinic-app-pipelines.apps.enentodemocluster.janus.com
+  556  curl https://petclinic-app-pipelines.apps.enentodemocluster.janus.com
+  557  curl -kv https://petclinic-app-pipelines.apps.enentodemocluster.janus.com
+  558  oc get svc -n pipelines
+  559  oc describe svc petclinic-service -n pipelines
+  560  oc get svc -n openshift-image-registry
+  561  ls
+  562  oc get svc -n openshift-image-registry
+  563  oc describe service image-registry -n openshift-image-registry
+  564  ls
+  565  oc get svc -n argocd
+  566  ls
+  567  oc get svc -n tools
+  568  ls
+  569  free -g
+  570  oc get ns
+  571  $ kubectl apply -f https://storage.googleapis.com/tekton-releases/pipeline/previous/v0.14.2/release.yaml
+  572  oc apply -f https://storage.googleapis.com/tekton-releases/pipeline/previous/v0.14.2/release.yaml
+  573  source /etc/environment
+  574  oc apply -f https://storage.googleapis.com/tekton-releases/pipeline/previous/v0.14.2/release.yaml
+  575  oc get ns
+  576  ls
+  577  oc delete -f https://storage.googleapis.com/tekton-releases/pipeline/previous/v0.14.2/release.yaml
+  578  oc get ns
+  579  ls
+  580  ping 10.47.32.7
+  581  ip addr
+  582  ping 10.255.16.40
+  583  ls
+  584  oc get all -n pipelines
+  585  ls
+  586  vi etc/ssh/sshd_config
+  587  ls
+  588  cd /etc/ssh/
+  589  ls
+  590  vi sshd_config
+  591  systemctl reload sshd
+  592  cd ~
+  593  ls
+  594  histroy | grep priviliged
+  595  history | grep priviliged
+  596  history | grep privile
+  597  oc whoami
+  598  oc adm policy add-scc-to-user privileged -z pipeline -n openshift-pipelines
+  599  history | grep oc adm
+  600  vi etc/ssh/sshd_config
+  601  ls
+  602  cd /etc/ssh/
+  603  ls
+  604  vi sshd_config
+  605  systemctl reload sshd
+  606  cd ~
+  607  ls
+  608  histroy | grep priviliged
+  609  history | grep priviliged
+  610  history | grep privile
+  611  oc whoami
+  612  oc adm policy add-scc-to-user privileged -z pipeline -n openshift-pipelines
+  613  history | grep oc adm
+  614  history | grep oc
+  615  oc adm policy add-role-to-user edit -z pipeline -n openshift-pipelines
+  616  oc get route
+  617  argocd login --sso enento-argocd-server-argocd.apps.enentodemocluster.janus.com
+  618  history | grep 47
+  619  oc adm policy add-scc-to-user anyuid -z builder
+  620  oc adm policy add-scc-to-user anyuid -z default
+  621  oc adm policy add-scc-to-user anyuid -z deployer
+  622  oc adm policy add-scc-to-user anyuid -z tekton-operators-proxy-webhook
+  623  oc adm policy add-scc-to-user anyuid -z tekton-pipelines-controller
+  624  oc adm policy add-scc-to-user anyuid -z tekton-pipelines-webhook
+  625  oc adm policy add-scc-to-user anyuid -z tekton-triggers-controller
+  626  oc adm policy add-scc-to-user anyuid -z tekton-triggers-core-interceptors
+  627  oc adm policy add-scc-to-user anyuid -z tekton-triggers-webhook
+  628  oc get sa -n openshift-pipelines
+  629  oc get sc -n pipelines
+  630  oc get sa -n pipelines
+  631  oc adm policy add-scc-to-user anyuid -z builder -n pipelines
+  632  oc adm policy add-scc-to-user anyuid -z builder -n default -n pipelines
+  633  oc adm policy add-scc-to-user anyuid -z default -n pipelines
+  634  oc adm policy add-scc-to-user anyuid -z deployer -n pipelines
+  635  oc adm policy add-scc-to-user anyuid -z pipeline -n pipelines
+  636  oc adm policy add-scc-to-user privileged -z pipeline -n openshift-pipelines
+  637  oc adm policy add-scc-to-user privileged -z pipeline -n pipelines
+  638  oc adm policy add-role-to-user edit -z pipeline -n openshift-pipelines
+  639  oc adm policy add-role-to-user edit -z pipeline -n pipelines
+  640  ip addr
+  641  ssh core@10.255.16.42
+  642  oc get svc -n image-registry
+  643  oc get svc -n openshift-image-registry
+  644  ssh core@10.255.16.42
+  645  argocd --help
+  646  argocd -version
+  647  argocd v
+  648  argocd version
+  649  oc get sa -n opeshift-operators
+  650  oc get sa -n openshift-operators
+  651  oc adm policy add-scc-to-user anyuid -z nexus3 -n openshift-operators
+  652  oc adm policy add-scc-to-user privileged -z nexus3 -n openshift-operators
+  653  oc adm policy add-role-to-user edit -z pipeline -n openshift-operators
+  654  touch report.txt
+  655  ls
+  656  echo report > report.txt
+  657  curl -v -u admin:admin123 --upload-file report.txt http://nexus3-openshift-operators.apps.enentodemocluster.janus.com/repository/petclinic-reports/v1/report.txt
+  658  curl -v -u admin:admin123 --upload-file report.txt http://nexus3-openshift-operators.apps.enentodemocluster.janus.com/repository/petclinic-reports/report.txt
+  659  source /etc/environment
+  660  curl -v -u admin:admin123 --upload-file report.txt http://nexus3-openshift-operators.apps.enentodemocluster.janus.com/repository/petclinic-reports/report.txt
+  661  ls
+  662  curl -v -u admin:admin123 --upload-file report.txt https://nexus3-openshift-operators.apps.enentodemocluster.janus.com/repository/petclinic-reports/v1/report.txt
+  663  curl -v -u admin:admin123 --upload-file report.txt http://nexus3-openshift-operators.apps.enentodemocluster.janus.com/repository/petclinic-reports/v1/report.txt
+  664  ls
+  665  ps -a
+  666  oc get svc -n tools
+  667  oc get svc -A | grep nexus
+  668  curl -kv nexus3.openshift-operators.svc:80
+  669  histroy | grep ssh
+  670  history | grep ssh
+  671  ssh core@10.255.16.42
+  672  ls
+  673  histroy | privi
+  674  history | privi
+  675  ls
+  676  histroy | privi
+  677  history | privi
+  678  history | grep privi
+  679  oc adm policy add-scc-to-user privileged -z nexus3 -n tools
+  680  ls
+  681  ssh core@10.255.16.42
+  682  ls
+  683  curl -X 'POST' 'http://nexus3-tools.apps.enentodemocluster.janus.com/service/rest/v1/components?repository=petclinic-repo' -H 'accept: application/json' -H 'Content-Type: multipart/form-data' -F 'raw.directory=/v4' -F 'raw.asset1=@zap-report.xhtml' -F 'raw.asset1.filename=zap-report.xhtml'
+  684  curl -kv http://nexus3-tools.apps.enentodemocluster.janus.com
+  685  curl -X 'POST' 'http://nexus3-tools.apps.enentodemocluster.janus.com/service/rest/v1/components?repository=petclinic-repo' -H 'accept: application/json' -H 'Content-Type: multipart/form-data' -F 'raw.directory=/v4' -F 'raw.asset1=@zap-report.xhtml' -F 'raw.asset1.filename=zap-report.xhtml'
+  686  curl -X 'POST'   'http://nexus3-tools.apps.enentodemocluster.janus.com/service/rest/v1/components?repository=petclinic-repo'   -H 'accept: application/json'   -H 'Content-Type: multipart/form-data'   -F 'raw.directory=/v3'   -F 'raw.asset1=@jmeter-task.log'   -F 'raw.asset1.filename=jmeter'
+  687  curl -X 'POST'   'http://nexus3-tools.apps.enentodemocluster.janus.com/service/rest/v1/components?repository=petclinic-repo'   -H 'accept: application/json'   -H 'Content-Type: multipart/form-data'   -F 'raw.directory=/v3'   -F 'raw.asset1=@report.txt'   -F 'raw.asset1.filename=report.log'
+  688  curl -X 'POST'   'http://nexus3-tools.apps.enentodemocluster.janus.com/service/rest/v1/components?repository=petclinic-repo'   -H 'accept: application/json'   -H 'Content-Type: multipart/form-data'   -F 'raw.directory=/v3'   -F 'raw.asset1=@jmeter-task.log'   -F 'raw.asset1.filename=jmeter'
+  689  touch jmeter.log
+  690  curl -X 'POST'   'http://nexus3-tools.apps.enentodemocluster.janus.com/service/rest/v1/components?repository=petclinic-repo'   -H 'accept: application/json'   -H 'Content-Type: multipart/form-data'   -F 'raw.directory=/v3'   -F 'raw.asset1=@jmeter-task.log'   -F 'raw.asset1.filename=jmeter'
+  691  touch jmeter-task.log
+  692  curl -X 'POST'   'http://nexus3-tools.apps.enentodemocluster.janus.com/service/rest/v1/components?repository=petclinic-repo'   -H 'accept: application/json'   -H 'Content-Type: multipart/form-data'   -F 'raw.directory=/v3'   -F 'raw.asset1=@jmeter-task.log'   -F 'raw.asset1.filename=jmeter'
+  693  curl -v -u admin:admin123 -X 'POST'   'http://nexus3-tools.apps.enentodemocluster.janus.com/service/rest/v1/components?repository=petclinic-repo'   -H 'accept: application/json'   -H 'Content-Type: multipart/form-data'   -F 'raw.directory=/v3'   -F 'raw.asset1=@report.txt'   -F 'raw.asset1.filename=report.log'
+  694  ls
+  695  oc get svc -n tools
+  696  curl -kv http://nexus3-tools.apps.enentodemocluster.janus.com/service/rest/v1/components?repository=petclinic-repo
+  697  curl --insecure -kv http://nexus3-tools.apps.enentodemocluster.janus.com/service/rest/v1/components?repository=petclinic-repo
+  698  curl --insecure -v http://nexus3-tools.apps.enentodemocluster.janus.com/service/rest/v1/components?repository=petclinic-repo
+  699  curl --insecure http://nexus3-tools.apps.enentodemocluster.janus.com/service/rest/v1/components?repository=petclinic-repo
+  700  echo $http_proxy
+  701  source /etc/environment
+  702  http://nexus3-tools.apps.enentodemocluster.janus.com/service/rest/v1/components?repository=petclinic-repo
+  703  curl --insecure http://nexus3-tools.apps.enentodemocluster.janus.com/service/rest/v1/components?repository=petclinic-repo
+  704  curl --insecure -v http://nexus3-tools.apps.enentodemocluster.janus.com/service/rest/v1/components?repository=petclinic-repo
+  705  echo $no_proxy
+  706  cuel -kv http://nexus3-tools.apps.enentodemocluster.janus.com/
+  707  curl -kv http://nexus3-tools.apps.enentodemocluster.janus.com/
+  708  export no_proxy=*.apps.enentodemocluster.janus.com
+  709  curl -kv http://nexus3-tools.apps.enentodemocluster.janus.com/
+  710  curl -kv http://nexus3-tools.apps.enentodemocluster.janus.com
+  711  llls
+  712  ls
+  713  ls
+  714  pw
+  715  dpwd
+  716  pwd
+  717  curl -v -u admin:admin123 -X POST 'http://nexus3-tools.apps.enentodemocluster.janus.com/service/rest/v1/components?repository=petclinic-repo' -F 'raw.directory=/v4' -F 'raw.asset1=@/root/jmeter-task.log' -F 'raw.asset1.filename=jmeter.log'
+  718  curl -v -u admin:admin123 -X POST http://nexus3-tools.apps.enentodemocluster.janus.com/service/rest/v1/components?repository=petclinic-repo -F 'raw.directory=/v4' -F 'raw.asset1=@/root/jmeter-task.log' -F 'raw.asset1.filename=jmeter.log'
+  719  curl -v -u admin:admin123 -X GET 'http://nexus3-tools.apps.enentodemocluster.janus.com/service/rest/v1/components'
+  720  curl -X GET 'http://nexus3-tools.apps.enentodemocluster.janus.com/service/rest/v1/components'
+  721  curl -X 'GET'   'http://nexus3-tools.apps.enentodemocluster.janus.com/service/rest/v1/components?repository=petclinic-repo'   -H 'accept: application/json'
+  722  curl -v -u admin:61031b29-f00b-3c1b-af9e-1909bcc47b63 -X GET 'http://nexus3-tools.apps.enentodemocluster.janus.com/service/rest/v1/components'
+  723  curl -X 'GET'   'http://nexus3-tools.apps.enentodemocluster.janus.com/service/rest/v1/components?repository=petclinic-repo'   -H 'accept: application/json'
+  724  oc get svc
+  725  oc get svc -n tools
+  726  curl -X 'GET'   'http://nexus3-tools.apps.enentodemocluster.janus.com/service/rest/v1/components?repository=petclinic-repo'   -H 'accept: application/json'
+  727  curl -v -u admin:admin123 -X 'GET'   'http://nexus3-tools.apps.enentodemocluster.janus.com/service/rest/v1/components?repository=petclinic-repo'   -H 'accept: application/json'
+  728  curl -kv nexus3-tools.apps.enentodemocluster.janus.com
+  729  curl -v -u admin:admin123 -X 'GET' 'http://nexus3-tools.apps.enentodemocluster.janus.com/service/rest/v1/components?repository=petclinic-repo'   -H 'accept: application/json'
+  730  ls
+  731  history | grep ssh
+  732  ssh core@10.255.16.42
+  733  cat /etc/environment
+  734  ssh pocadmin@10.255.0.19
+  735  cat /etc/resolv.conf
+  736  yum update
+  737  sudo dnf install -y curl policycoreutils openssh-server perl
+  738  yum install dnf
+  739  docker
+  740  history | grep subscrption
+  741  history | grep subscr
+  742  cat /etc/environment
+  743  ssh pocadmin@10.255.0.19
+  744  ping 10.255.0.19
+  745  ssh pocadmin@10.255.0.19
+  746  curl -kv www.google.com
+  747  ssh pocadmin@10.255.0.19
+  748  curl -kv www.google.com
+  749  source /etc/environment
+  750  curl -kv www.google.com
+  751  ssh pocadmin@10.255.0.19
+  752  docker images
+  753  docker pull store/gitlab/gitlab-ce:11.10.4-ce.0
+  754  source /etc/environment
+  755  docker pull store/gitlab/gitlab-ce:11.10.4-ce.0
+  756  docker info
+  757  ls -a
+  758  mkdir .docker
+  759  cd .docker/
+  760  ls
+  761  vi config.json
+  762  systemctl restart docker
+  763  docker ps -a
+  764  docker pull store/gitlab/gitlab-ce:11.10.4-ce.0
+  765  cd ~
+  766  ls
+  767  oc new-project ci
+  768  oc process -f http://bit.ly/openshift-gogs-persistent-template  —param=GOGS_VERSION=0.11.4 | oc create -f -
+  769  vi gogs.yaml
+  770  oc process -f gogs.yaml  —param=GOGS_VERSION=0.11.4 | oc create -f -
+  771  oc process -f gogs.yaml  --param=GOGS_VERSION=0.11.4 | oc create -f -
+  772  vi gogs.yaml
+  773  oc process -f gogs.yaml --param=HOSTNAME=gogs.ci.apps.enentodemocluster.janus.com --param=GOGS_VERSION=0.11.4 | oc create -f -
+  774  ls
+  775  ssh enento@10.255.16.41
+  776  vi /root/.ssh/known_hosts
+  777  ssh enento@10.255.16.41
+  778  ls
+  779  curl -kv www.googel.com
+  780  curl -kv www.google.com
+  781  source /etc/environment
+  782  curl -kv www.google.com
+  783  ssh enento@10.255.16.41
+  784  ls
+  785  oc adm policy add-cluster-role-to-user cluster-admin pipeline -n openshift-pipelines
+  786  oc adm policy add-cluster-role-to-sa cluster-admin pipeline -n openshift-pipelines
+  787  oc policy add-role-to-user cluster-admin -z pipeline -n openshift-pipelines
+  788  oc adm policy add-role-to-user cluster-admin -z pipeline -n openshift-pipelines
+  789  ls
+  790  systemctl status httpd
+  791  systemctl stop httpd
+  792  ls
+  793  systemctl disable httpd
+  794  ls
+  795  vi /etc/haproxy/haproxy.cfg
+  796  systemctl restart haproxy
+  797  systemctl status haproxy
+  798  ls
+  799  git
+  800  git clone http://gogs.ci.apps.enentodemocluster.janus.com/gogs/test-repo.git
+  801  ls
+  802  cd test
+  803  cd test-r
+  804  cd ../
+  805  cd test-repo/
+  806  ls
+  807  cd !
+  808  cd ~
+  809  l
+  810  ls
+  811  git clone https://github.com/mypractice96/tekton-spring-petclinic.git
+  812  source /etc/environment
+  813  git clone https://github.com/mypractice96/tekton-spring-petclinic.git
+  814  ls
+  815  ls tekton-spring-petclinic/
+  816  cd tekton-spring-petclinic/
+  817  ls
+  818  rm -rf petclinic-loadtest.jmx
+  819  ls
+  820  rm -rf Jenkinsfile
+  821  ls
+  822  mkdir gogs
+  823  cd gogs/
+  824  git clone http://gogs.ci.apps.enentodemocluster.janus.com/gogs/tekton-spring-petclinic.git
+  825  unset http_proxy
+  826  unset https_proxy
+  827  git clone http://gogs.ci.apps.enentodemocluster.janus.com/gogs/tekton-spring-petclinic.git
+  828  ls
+  829  ls tekton-spring-petclinic/
+  830  cd ../
+  831  ls
+  832  cd ../
+  833  cd ~
+  834  ls
+  835  cd tekton-spring-petclinic
+  836  ls
+  837  cd gogs/ ~/gogs.yaml
+  838  ls
+  839  cd tekton-spring-petclinic/
+  840  ls
+  841  cd ../../
+  842  ls
+  843  mv gogs/ ~
+  844  ls
+  845  cd ../
+  846  ls
+  847  ls gogs
+  848  cp -R tekton-spring-petclinic/* gogs/tekton-spring-petclinic/
+  849  lls
+  850  s
+  851  cd s
+  852  ls
+  853  cd gogs
+  854  ls
+  855  cd tekton-spring-petclinic/
+  856  ls
+  857  git add *
+  858  git status
+  859  git commit -m "Initial Commit"
+  860  git push
+  861  ls
+  862  cd upi
+  863  ls
+  864  cd ../
+  865  ls
+  866  systemctl status haproxy
+  867  ls
+  868  ls -a
+  869  curl -kv google.com
+  870  cat /etc/haproxy/haproxy.cfg
+  871  ls
+  872  rm -r tekton-spring-petclinic/
+  873  ls
+  874  rm -rf tekton-spring-petclinic/
+  875  ls
+  876  rm -rf test-repo/
+  877  rm -rf test/
+  878  l
+  879  sls
+  880  ls
+  881  rm -rf gogs
+  882  ls
+  883  git clone http://gogs.ci.apps.enentodemocluster.janus.com/gogs/tekton-spring-petclinic.git
+  884  ls
+  885  cd tekton-spring-petclinic/
+  886  ls
+  887  git branch -a
+  888  git checkout dev
+  889  git checkout -b dev
+  890  git branch -a
+  891  git add *
+  892  git commit -m "Initial Commit"
+  893  git push -u origin dev
+  894  git checkout master
+  895  git checkout -b qa
+  896  git push -u origin qa
+  897  git push -u origin  http://gogs:gogs@gogs.ci.apps.enentodemocluster.janus.com/gogs/tekton-spring-petclinic.git  qa
+  898  git push http://gogs:gogs@gogs.ci.apps.enentodemocluster.janus.com/gogs/tekton-spring-petclinic.git  qa
+  899  ls
+  900  git clone https://github.com/mypractice96/tekton-spring-petclinic-selenium-grid.git
+  901  source /etc/environment
+  902  git clone https://github.com/mypractice96/tekton-spring-petclinic-selenium-grid.git
+  903  cd tekton-spring-petclinic-selenium-grid/
+  904  ls
+  905  cd ../
+  906  ls
+  907  git clone http://gogs.ci.apps.enentodemocluster.janus.com/gogs/tekton-spring-petclinic-selenium-grid.git
+  908  unset http_proxy
+  909  unset https_proxy
+  910  mkdir gogs
+  911  cd gogs
+  912  git clone http://gogs.ci.apps.enentodemocluster.janus.com/gogs/tekton-spring-petclinic-selenium-grid.git
+  913  ls
+  914  cd ~
+  915  ls
+  916  cp -R tekton-spring-petclinic-selenium-grid/* gogs/tekton-spring-petclinic-selenium-grid/
+  917  ls
+  918  cd gogs
+  919  ls
+  920  cd tekton-spring-petclinic-selenium-grid/
+  921  ls
+  922  git aff *
+  923  git add *
+  924  git status
+  925  git commit -m "initial Commit"
+  926  git push
+  927  ls
+  928  rm -f tekton-spring-petclinic
+  929  rm -rf tekton-spring-petclinic
+  930  rm -rf tekton-spring-petclinic-selenium-grid/
+  931  ls
+  932  cd gogs
+  933  ls
+  934  rm -rf tekton-spring-petclinic-selenium-grid/
+  935  cd ~
+  936  ls
+  937  ls gogs
+  938  ls
+  939  cd gogs
+  940  git clone http://gogs.ci.apps.enentodemocluster.janus.com/gogs/tekton-petclinic-argocd.git
+  941  ls
+  942  cd ../
+  943  ls
+  944  git clone https://github.com/mypractice96/tekton-petclinic-argocd.git
+  945  source /etc/environment
+  946  git clone https://github.com/mypractice96/tekton-petclinic-argocd.git
+  947  ls
+  948  cp -R tekton-petclinic-argocd/ gogs/tekton-petclinic-argocd/
+  949  cd gogs
+  950  cd tekton-petclinic-argocd/
+  951  ls
+  952  cd tekton-petclinic-argocd/
+  953  ls
+  954  ls -a
+  955  git add 8
+  956  git add *
+  957  git commit -m "First Commit"
+  958  git push
+  959  ls
+  960  cd ..
+  961  l
+  962  ls
+  963  rm -rf tekton-petclinic-argocd/
+  964  rm -rf README.md
+  965  ls
+  966  cd ../
+  967  ls
+  968  rm -rf tekton-petclinic-argocd/
+  969  ls
+  970  cd ~
+  971  ls
+  972  cd gogs
+  973  ls
+  974  git clone http://gogs.ci.apps.enentodemocluster.janus.com/gogs/tekton-petclinic-argocd.git
+  975  unset http_proxy
+  976  unset https_proxy
+  977  git clone http://gogs.ci.apps.enentodemocluster.janus.com/gogs/tekton-petclinic-argocd.git
+  978  cd ls
+  979  ls
+  980  cd ~
+  981  ls
+  982  cp -R tekton-petclinic-argocd/* gogs/tekton-petclinic-argocd/
+  983  ls
+  984  cd gogs/tekton-petclinic-argocd/
+  985  ls
+  986  git add *
+  987  git commit -m "Initial Commit"
+  988  git config username "Vamsi"
+  989  git config user.name "Vamsi"
+  990  git config user.email "vamsi@tcs.com"
+  991  git commit -m "Initial Commit"
+  992  git push
+  993  history
+-
